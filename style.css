@@ -1,216 +1,234 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lebenslauf - Patrick Maaß</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+/* Grundlegende Stile */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    scroll-behavior: smooth; /* Sanftes Scrollen aktivieren */
+}
 
-    <header class="main-header">
-        <div class="header-content">
-            <h1 class="fade-in">Patrick Maaß</h1>
-            <p class="fade-in-delay">Angehender Fachinformatiker Anwendungsentwicklung</p>
-        </div>
-    </header>
+/* Container für den Inhalt */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-    <nav class="main-navigation">
-        <div class="nav-item-wrapper">
-            <a href="#profil" class="nav-item">
-                <i class="fas fa-user-circle nav-icon"></i>
-                <span class="nav-description">Profil</span>
-            </a>
-            <a href="#projekte" class="nav-item">
-                <i class="fas fa-project-diagram nav-icon"></i>
-                <span class="nav-description">Projekte</span>
-            </a>
-            <a href="#faehigkeiten" class="nav-item">
-                <i class="fas fa-tools nav-icon"></i>
-                <span class="nav-description">Fähigkeiten</span>
-            </a>
-            <a href="#lebenslauf" class="nav-item">
-                <i class="fas fa-scroll nav-icon"></i>
-                <span class="nav-description">Lebenslauf</span>
-            </a>
-            <a href="#kontakt" class="nav-item">
-                <i class="fas fa-envelope nav-icon"></i>
-                <span class="nav-description">Kontakt</span>
-            </a>
-        </div>
-    </nav>
-    
-    <main>
-        <section id="hero" class="hero-section">
-            <img src="img\istockphoto-2161912895-612x612.jpg" alt="Hintergrundbild " class="hero-image">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h2>Gesucht: Praktikum im Bereich Anwendungsentwicklung</h2>
-                <p>Ich bin motiviert, meine Leidenschaft für Code in die Praxis umzusetzen und Ihr Team zu unterstützen.</p>
-                <a href="#kontakt" class="cta-button">Jetzt Kontakt aufnehmen</a>
-            </div>
-        </section>
+/* Header */
+.main-header {
+    background: #415972;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
+.main-header h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 0.5rem;
+}
 
-        <section id="profil">
-            <div class="content-container">
-                <img src="img\641_000004066-104-Bearbeitet.jpg" alt="Profilfoto von Patrick Maaß" class="profile-photo">
-                <div class="profil-text">
-                    <h2>Über mich & meine Motivation</h2>
-                    <p>
-                        Als begeisterter IT-Enthusiast strebe ich eine Karriere als Fachinformatiker für Anwendungsentwicklung an. Mich fasziniert die Konzeption und Umsetzung robuster und benutzerfreundlicher Softwarelösungen.
-                    </p>
-                    <p>
-                        Mein Ziel ist es, mein theoretisches Wissen in der Praxis zu vertiefen. Ich bin überzeugt, dass ich mit meiner Lernbereitschaft und meinem Engagement eine Bereicherung für Ihr Team sein kann.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="projekte">
-            <div class="content-container">
-                <h2>Meine Projekte auf GitHub</h2>
-                <p class="section-description">Hier sind einige meiner Projekte, die meine praktischen Fähigkeiten demonstrieren.</p>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3>CV-Webseite (Diese Seite)</h3>
-                        <p>Eine responsive Single-Page-Application zur Präsentation meines Profils, umgesetzt mit HTML, CSS und JavaScript.</p>
-                        <a href="https://github.com/patteschluepfer/cv" target="_blank" class="project-link">Code auf GitHub ansehen</a>
-                    </div>
-                    <div class="project-card">
-                        <h3>Projekt 2: Online-Shop-Backend</h3>
-                        <p>Ein einfaches Backend für einen Online-Shop. Realisiert mit PHP, MySQL und sicherer PDO-Datenbankanbindung.</p>
-                        <a href="https://github.com/dein-user-name/projekt-2" target="_blank" class="project-link">Code auf GitHub ansehen</a>
-                    </div>
-                    </div>
-            </div>
-        </section>
+/* Navigation */
+.main-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #96a2ad;
+    color: #fff;
+    padding: 0.75rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.nav-item-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.nav-item:hover {
+    color: #3498db;
+}
+.nav-description {
+    font-size: 0.8rem;
+    display: none; /* Text wird auf kleinen Displays ausgeblendet */
+}
+@media (min-width: 768px) {
+    .nav-description {
+        display: block; /* Text wird auf größeren Displays angezeigt */
+    }
+}
 
-        <section id="faehigkeiten">
-            <div class="content-container">
-                <h2>Kenntnisse & Fähigkeiten</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programmiersprachen</h3>
-                        <ul>
-                            <li>PHP</li>
-                            <li>JavaScript (ES6+)</li>
-                            <li>SQL</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Web-Technologien</h3>
-                        <ul>
-                            <li>HTML5 & CSS3</li>
-                            <li>Responsives Design</li>
-                            <li>Git & GitHub</li>
-                            <li>MySQL/MariaDB</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Konzepte & Tools</h3>
-                        <ul>
-                            <li>Objektorientierte Programmierung (OOP)</li>
-                            <li>Prepared Statements (SQL Injection Schutz)</li>
-                            <li>REST-APIs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Hero Sektion */
+.hero-section {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+.hero-content {
+    z-index: 1;
+    max-width: 600px;
+}
+.hero-content h2 {
+    font-family: klipan western ;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 2rem;
+}
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.cta-button:hover {
+    background: #2980b9;
+}
 
-        <section id="lebenslauf" class="content-section">
-            <div class="content-container">
-                <h2>Mein beruflicher Werdegang</h2>
-                   <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>Seit 10/2023: Berufsförderungswerk</h3>
-                        <p>Angehender Fachinformatiker für Anwendungsentwicklung </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Seit 10/2020: WISAG Gebäude und Industrieservice Nord GmbH & Co.KG</h3>
-                        <p>Kälteanlagenbauer 
-                            <br>Errichten und Inbetriebnahme von Kälteanlagen, Dokumentation und Wartungsarbeiten, Kundenunterweisung und eigenverantwortliche Auftragsbearbeitung </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>10/2016 – 10/2020: HRW Gebäudetechnik</h3>
-                        <p>Kälteanlagenbauer <br>Errichten von Kälteanlagen und Montage, Wartung und Ausbau von raumlufttechnischen Anlagen, Umbau von Ladengeschäften 
-                        </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>08/2015 – 10/2016: Kälte Bast GmbH</h3>
-                        <p>Industriemechaniker für Kälte und Klimatechnik <br>Neubau von Klimageräten und Ex-geschützten Lüftungsanlagen, Serverkühlung in Rechenzentren, Betreuung von Privatkunden </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>03/2014 – 08/2015: Interstaff GmbH (für Kälte Bast)</h3>
-                        <p>Kälteanlagenbauer <br>Montage mobiler Split-Kühlgeräte, Bau von Prototypen, Kundendienst </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>02/2013 – 07/2013: Optimum Personalservice GmbH (für Rolf Gümmer)</h3>
-                        <p>Kälteanlagenbauer <br>Kundendienst für Kühlanlagen in der Gastronomie, Reparatur von Geschirrspülern und Küchengeräten </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>05/2009 – 10/2012: Kälte Bast GmbH</h3>
-                        <p>Industriemechaniker für Kälte und Klimatechnik <br>Kundendienst, Neumontage von Splitklimageräten </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>05/2008 – 05/2009: Advantage Management GmbH (für Kälte Bast)</h3>
-                       <p>Kälteanlagenbauer </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>02/2007 – 03/2008: Peter Maaß, Kälte und Klimatechnik</h3>
-                        <p>Kundendienstmonteur Kältetechnik <br>Wartung von Kühlgeräten, Schlosserarbeiten </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>01/2001 – 11/2006: Niels Möller Klimatechnik</h3>
-                        <p>Kälteanlagenbauer <br>Wartung von Brandschutzklappen und Installation von Klimageräten </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>11/2000 - 12/2000: Bernd Lenz Tankstellen GmbH</h3>
-                        <p>Kassierer [cite: 37]</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>06/1999 – 10/2000: Gunnar Klingbeil Tankstellen GmbH</h3>
-                        <p>Kassierer <br>Kundenberatung und Fahrzeughilfe, Remission von Zeitschriften, Warenzubereitung im Backshop </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>05/1996 – 03/1999: Bäderland Hamburg</h3>
-                        <p>Industriemechaniker Betriebstechnik <br>Wartung und Instandhaltung aller technischen Anlagen </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>01/1996 – 04/1996: Wasserwerk Walddörfer</h3>
-                        <p>Industriemechaniker Betriebstechnik [cite: 44]</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>08/1992 – 01/1996: Hamburger Wasserwerke</h3>
-                        <p>Ausbildung zum Industriemechaniker mit Abschluss </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-                    
-        <section id="kontakt">
-            <div class="content-container">
-                <h2>Kontakt</h2>
-                <p>Ich freue mich darauf, von Ihnen zu hören!</p>
-                <ul class="contact-list">
-                    <li><i class="fas fa-envelope"></i> E-Mail: <a href="mailto:pamaassi@web.de">pamaassi@web.de</a></li>
-                    <li><i class="fas fa-phone"></i> Telefon: <a href="tel:+491732792926">+49 173 2792926</a></li>
-                    <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/dein-profil" target="_blank">linkedin.com/in/dein-profil</a></li>
-                    <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/patteschluepfer" target="_blank">github.com/patteschluepfer</a></li>
-                </ul>
-            </div>
-        </section>
-    </main>
+/* Sektionen */
+section {
+    padding: 4rem 0;
+    border-bottom: 1px solid #6b6666;
+}
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2f75ad;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
 
-    <footer class="main-footer">
-        <div class="content-container">
-            <p>&copy; 2025 Patrick Maaß | <a href="#impressum">Impressum</a> | <a href="#datenschutz">Datenschutz</a></p>
-        </div>
-    </footer>
-    
-    <script src="script.js"></script>
+/* Profil Sektion */
+#profil .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #3498db;
+    object-fit: cover;
+}
+@media (min-width: 768px) {
+    #profil .content-container {
+        flex-direction: row;
+        text-align: left;
+    }
+}
 
-</body>
-</html>
+/* Projekt Sektion */
+.project-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.project-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+}
+.project-card h3 {
+    color: #3498db;
+    margin-top: 0;
+}
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #2c3e50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Fähigkeiten Sektion */
+.skills-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.skill-category {
+    background: #fff;
+    padding: 1.5rem;
+    border-left: 4px solid #3498db;
+    border-radius: 4px;
+}
+.skill-category h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+/* Kontakt Sektion */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+.contact-list li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.contact-list i {
+    margin-right: 10px;
+    color: #3498db;
+}
+
+/* Footer */
+.main-footer {
+    background: #2c3e50;
+    color: #ccc;
+    text-align: center;
+    padding: 1rem 0;
+}
+.main-footer a {
+    color: #fff;
+    text-decoration: none;
+}
