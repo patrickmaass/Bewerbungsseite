@@ -100,7 +100,6 @@ body {
     max-width: 600px;
 }
 .hero-content h2 {
-    font-family: klipan western ;
     font-size: clamp(1.5rem, 4vw, 3rem);
     margin-bottom: 1rem;
 }
